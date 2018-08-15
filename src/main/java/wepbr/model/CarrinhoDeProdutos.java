@@ -2,9 +2,14 @@ package wepbr.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.OnDelete;
 
 @Entity
 
@@ -13,20 +18,30 @@ public class CarrinhoDeProdutos {
 	@Id
 	@GeneratedValue
 	private Integer id;
-	private Cliente cliente;
+	
+    @OneToOne
+    private Cliente cliente;
+	
+    @OneToMany
 	private List<ItemCarrinho> itensCarrinho;
+    
+	@OneToOne
 	private Pagamento pagamento;
+	
+	@Column	
 	private double subtotal;
 	
 	
-
+	
 	
 	public CarrinhoDeProdutos() {
 		super();
 	}
 
 	public CarrinhoDeProdutos(Integer id ) {
-	    this.id = id;	
+	    this.id = id;
+	    cliente = new Cliente();
+
 	}
 
 	public Integer getId() {

@@ -4,7 +4,9 @@ public enum FormaPagamento {
   
 	
 	
-	Boleto,Credito,Debito
+	Boleto,
+	Credito,
+	Debito;
   
   
   

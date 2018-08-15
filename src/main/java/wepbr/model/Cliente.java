@@ -1,15 +1,28 @@
 package wepbr.model;
 
+
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
+
 public class Cliente {
-	@GeneratedValue
 	
+	@Id
+    @GeneratedValue
 	private String id;
+	
+	@Column
 	private String nome;
+	
+	@Column
 	private String email;
+	
+	@OneToOne
 	private Endereco endereco;
 	
 	
@@ -17,10 +30,15 @@ public class Cliente {
 		this.id = "";
 		this.nome = nome;
 		this.email = "";
-		this.endereco = endereco;
-		
+		this.endereco = endereco;		
 	}
-
+	public Cliente() {
+		super();
+	}
+		
+	public String getId() {
+		return id;
+	}
 	public String getNome() {
 		return nome;
 	}
@@ -37,9 +55,7 @@ public class Cliente {
 		this.email = email;
 	}
 
-	public String getId() {
-		return id;
-	}
+	
 
 
 

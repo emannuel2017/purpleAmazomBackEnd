@@ -1,16 +1,35 @@
 package wepbr.model;
 
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Produto {
+	
+	@Id
+	@GeneratedValue
+	private String id;
+	
+	@Column
 	private String marca;
+	@Column
 	private String tipo;
+	@Column
 	private String codigo;
+	@Column
 	private double preco;//150
+	@Column
 	private String descricao;
 	
    public Produto(String marca,double preco ) {
 	this.marca = marca;
 	this.preco = preco;
 }
+   
+   public Produto() {}
 
 public double getPreco() {
 	return preco;

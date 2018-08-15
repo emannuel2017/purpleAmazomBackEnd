@@ -1,12 +1,29 @@
 package wepbr.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Endereco {
+	@Id
+	@GeneratedValue
+	private String id;
+	
+	@Column
 	private String cidade;
+	@Column
 	private String cep;
+	@Column
 	private String rua;
+	@Column
 	private String numero;
+	@Column
 	private String estado;
+	@Column
 	private String pais;
+	@Column
 	private String numeroTelefone;
 	
 	public Endereco(String estado, String cep) {
@@ -17,7 +34,7 @@ public class Endereco {
 		this.numero = "";
 		this.estado = estado;
 		this.pais = "";
-		this.numeroTelefone = numeroTelefone;
+		this.numeroTelefone = "";
 		
 	}
 

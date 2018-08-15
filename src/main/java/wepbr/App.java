@@ -3,18 +3,20 @@ package wepbr;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
+import wepbr.model.Cliente;
+
 public class App {
     public static void main( String[] args ){
     	EntityManager manager = JPAUtil.getEntityManager();
 		EntityTransaction tx = manager.getTransaction();
 		tx.begin();
 		
-		Usuario u = new Usuario();
+		Cliente c = new Cliente();
 		
-		u.setNome("postegres");
-		u.setSenha("wep");
+		c.setNome("Roberto Justos");
+		c.setEmail("robertomoney@bb.com");
 		
-		manager.persist(u);
+		manager.persist(c);
 		
 		tx.commit();
 		manager.close();
