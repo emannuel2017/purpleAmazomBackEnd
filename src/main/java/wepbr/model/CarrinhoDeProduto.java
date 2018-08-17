@@ -2,6 +2,7 @@ package wepbr.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,19 +14,17 @@ import org.hibernate.annotations.OnDelete;
 
 @Entity
 
-public class CarrinhoDeProdutos {
+public class CarrinhoDeProduto {
 	 
 	@Id
 	@GeneratedValue
 	private Integer id;
 	
-    @OneToOne
-    private Cliente cliente;
 	
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
 	private List<ItemCarrinho> itensCarrinho;
     
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private Pagamento pagamento;
 	
 	@Column	
@@ -34,14 +33,12 @@ public class CarrinhoDeProdutos {
 	
 	
 	
-	public CarrinhoDeProdutos() {
+	public CarrinhoDeProduto() {
 		super();
 	}
 
-	public CarrinhoDeProdutos(Integer id ) {
+	public CarrinhoDeProduto(Integer id ) {
 	    this.id = id;
-	    cliente = new Cliente();
-
 	}
 
 	public Integer getId() {
@@ -64,7 +61,7 @@ public class CarrinhoDeProdutos {
 		return pagamento;
 	}
 	
-	public void  iniciaPagamento(String idPagamento, Date data, FormaPagamento formaPagamento) {
+	public void  iniciaPagamento(Integer idPagamento, Date data, FormaPagamento formaPagamento) {
 		pagamento = new Pagamento(idPagamento,data,formaPagamento);
 	}
 

@@ -11,7 +11,7 @@ public class Produto {
 	
 	@Id
 	@GeneratedValue
-	private String id;
+	private Integer id;
 	
 	@Column
 	private String marca;
@@ -29,7 +29,33 @@ public class Produto {
 	this.preco = preco;
 }
    
-   public Produto() {}
+   
+   
+   public Integer getId() {
+	return id;
+}
+
+
+
+public void setId(Integer id) {
+	this.id = id;
+}
+
+
+
+public void setMarca(String marca) {
+	this.marca = marca;
+}
+
+
+
+public void setTipo(String tipo) {
+	this.tipo = tipo;
+}
+
+
+
+public Produto() {}
 
 public double getPreco() {
 	return preco;

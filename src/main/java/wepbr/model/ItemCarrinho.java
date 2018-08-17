@@ -1,5 +1,6 @@
 package wepbr.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,7 +16,7 @@ public class ItemCarrinho {
 	@Column
 	private Double preco;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Produto produto;
 	@Column
 	private Integer quantidade;

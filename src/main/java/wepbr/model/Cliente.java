@@ -2,6 +2,7 @@ package wepbr.model;
 
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,7 +15,7 @@ public class Cliente {
 	
 	@Id
     @GeneratedValue
-	private String id;
+	private Integer id;
 	
 	@Column
 	private String nome;
@@ -22,21 +23,23 @@ public class Cliente {
 	@Column
 	private String email;
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private Endereco endereco;
 	
+	@OneToOne
+	private CarrinhoDeProduto carrinhoDeProduto;
 	
 	public Cliente(String nome, Endereco endereco ){
-		this.id = "";
 		this.nome = nome;
 		this.email = "";
-		this.endereco = endereco;		
+		this.endereco = endereco;
+		this.carrinhoDeProduto = new CarrinhoDeProduto();
 	}
 	public Cliente() {
 		super();
 	}
 		
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 	public String getNome() {
@@ -55,9 +58,18 @@ public class Cliente {
 		this.email = email;
 	}
 
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
 	
 
 
+	public CarrinhoDeProduto getCarrinhoDeProdutos() {
+		return carrinhoDeProduto;
+	}
+	public void setCarrinhoDeProdutos(CarrinhoDeProduto carrinhoDeProduto) {
+		this.carrinhoDeProduto = carrinhoDeProduto;
+	}
 
 	@Override
 	public String toString() {

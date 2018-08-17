@@ -14,14 +14,14 @@ import javax.persistence.Id;
 public class Pagamento {
 	@Id
 	@GeneratedValue
-	private String id;
+	private Integer id;
 	@Enumerated(EnumType.STRING)
 	@Column(name="tab_forma")
 	private FormaPagamento formaPagamento;	
 	@Column
 	private Date data;
     
-	public Pagamento(String id, Date data, FormaPagamento dadoPagamento) {		
+	public Pagamento(Integer id, Date data, FormaPagamento dadoPagamento) {		
 		this.id = id;
 		this.data = data;
 		this.formaPagamento = dadoPagamento;
@@ -35,7 +35,7 @@ public class Pagamento {
 		return formaPagamento;
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 	
