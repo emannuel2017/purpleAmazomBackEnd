@@ -26,8 +26,10 @@ public class Pagamento {
 		this.data = data;
 		this.formaPagamento = dadoPagamento;
 	}
-
-	public Date getData() {
+    
+	public Pagamento() {}
+	
+    public Date getData() {
 		return data;
 	}
    // escolhe a forma de pagamento do cliente

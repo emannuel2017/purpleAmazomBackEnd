@@ -5,12 +5,17 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
 public class Loja {
 	@Id
+	@GeneratedValue
+	private Integer id;
+		
+	@Column
 	private String registro;
 	
 	@OneToMany(cascade = CascadeType.ALL)
@@ -24,6 +29,8 @@ public class Loja {
     	this.email = "";
 		departamentos = new ArrayList<Departamento>();
 	}
+    
+    public Loja() {}
 
 	public List<Departamento> getDepartamentos() {
 		return departamentos;

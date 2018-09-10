@@ -26,6 +26,7 @@ public class Departamento {
 		this.nome = nome;
 		categorias = new ArrayList <Categoria>();
 	}
+	public Departamento() {}
 
 
 	public String getNome() {

@@ -37,8 +37,11 @@ public class Endereco {
 		this.numeroTelefone = "";
 		
 	}
-
-	public String getCidade() {
+    
+	public Endereco() {}
+	
+    
+    public String getCidade() {
 		return cidade;
 	}
 

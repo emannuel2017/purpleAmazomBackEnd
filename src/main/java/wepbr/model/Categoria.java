@@ -28,7 +28,7 @@ public class Categoria {
 		this.produtos = new ArrayList();
 		
 	}
-
+    public Categoria() {}
 
 	public String getNome() {
 		return nome;
