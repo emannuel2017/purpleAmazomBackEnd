@@ -25,7 +25,7 @@ public class Categoria {
 	public Categoria(String nome) {
 		
 		this.nome = nome;
-		this.produtos = new ArrayList();
+		this.produtos = new ArrayList<Produto>();
 		
 	}
     public Categoria() {}
